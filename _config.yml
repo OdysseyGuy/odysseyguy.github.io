@@ -1,0 +1,24 @@
+title: My Website
+
+source: src
+strict_front_matter: true
+permalink: /:categories/:year-:month-:day/:title
+
+liquid:
+  error_mode: strict
+  strict_filters: true
+
+sass:
+  sass_dir: _sass
+
+postcss:
+  cache: false # need this else tailwind won't update modules
+
+plugins:
+  - jekyll-postcss
+
+defaults:
+  - scope:
+      path: ''
+    values:
+      layout: 'default'

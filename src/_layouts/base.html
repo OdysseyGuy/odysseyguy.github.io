@@ -1,0 +1,45 @@
+{% assign cache_bust = site.time|date:'?v=%s' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      {{ site.title }} {% if page.title %} | {{ page.title }} {% endif %}
+    </title>
+
+    <meta name="description" content="{{ page.description }}" />
+
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/main.css' | append: cache_bust }}"
+    />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
+    {% for css in page.css %}
+      {% assign assets_path = '/assets/css/{{css}}' %}
+      <link rel="stylesheet" href="{{ assets_path | append: cache_bust }}" />
+    {% endfor %}
+  </head>
+
+  <body class="antialiased">
+    {% include header.html %}
+    
+    {{ content }}
+    
+    {% if page.show_footer %}
+      {% include footer.html %}
+    {% endif %}
+
+    <script src="{{ '/assets/js/main.js' | append: cache_bust }}"></script>
+
+    {% for js in page.js %}
+      {% assign assets_path = '/assets/js/{{js}}' %}
+      <script src="{{ assets_path | append: cache_bust }}"></script>
+    {% endfor %}
+  </body>
+</html>
