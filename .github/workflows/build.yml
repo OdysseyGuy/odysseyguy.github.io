@@ -78,10 +78,8 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-          git remote set-url origin "${REMOTE_REPO}"
-          git checkout -B "${REMOTE_BRANCH}"
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push origin "${REMOTE_BRANCH}"
+          git add --all
+          git commit --quiet --message "Deploy docs from ${GITHUB_SHA}"
+          git push --force $REMOTE_REPO HEAD:$REMOTE_BRANCH"
 
           popd &>/dev/null
