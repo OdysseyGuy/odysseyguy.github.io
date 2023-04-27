@@ -70,7 +70,10 @@ jobs:
           REMOTE_BRANCH="${REMOTE_BRANCH:-gh-pages}"
           REMOTE_REPO="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
 
-          echo "Deploying to ${REMOTE_REPO} on branch ${REMOTE_BRANCH}"
+          git init
+
+          echo "Deploying to ${GITHUB_REPOSITORY} on branch ${REMOTE_BRANCH}"
+          echo "Deploying to ${REMOTE_REPO}"
 
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
