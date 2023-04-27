@@ -60,7 +60,7 @@ jobs:
 
       - name: "Build site"
         run: |
-          bundle exec jekyll build --verbose --trace
+          JEKYLL_ENV=production bundle exec jekyll build --verbose --trace
 
       - name: "Deploy to GitHub pages"
         run: |

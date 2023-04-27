@@ -10,6 +10,8 @@ liquid:
 
 sass:
   sass_dir: _sass
+  cache: false
+  style: compressed
 
 postcss:
   cache: false # need this else tailwind won't update modules
