@@ -1,6 +1,6 @@
 # Website 
 
-[![Build and Deploy to GitHub Pages](https://github.com/OdysseyGuy/odysseyguy.github.io/actions/workflows/build.yml/badge.svg?event=label)](https://github.com/OdysseyGuy/odysseyguy.github.io/actions/workflows/build.yml)
+[![Build and Deploy to Pages](https://github.com/OdysseyGuy/odysseyguy.github.io/actions/workflows/build.yml/badge.svg?event=label)](https://github.com/OdysseyGuy/odysseyguy.github.io/actions/workflows/build.yml)
 
 Uses Jekyll static site generator to build the website.
 

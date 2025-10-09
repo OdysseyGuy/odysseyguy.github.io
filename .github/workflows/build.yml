@@ -2,7 +2,7 @@ name: Build and Deploy to Pages
 
 env:
   NODE_VERSION: 22.20.0
-  RUBY_VERSION: 3.4.7
+  RUBY_VERSION: 3.2.4
 
 on:
   push:
