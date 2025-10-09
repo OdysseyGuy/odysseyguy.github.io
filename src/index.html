@@ -1,14 +1,68 @@
 ---
-layout: landing
+layout: default
+description: Rik Seth - B.E. in ECE (2023-2027) with interest in FPGA-based digital signal processing, hardware acceleration, and machine learning accelerators.
 ---
 
-<div class="flex justify-center">
-  <h1 class="text-4xl font-bold">Welcome to OG's Blog.</h1>
-</div>
-<div x-data="greetings()" class="inline-flex flex-col gap-2">
-  <template x-for="(message, index) in messages" :key="message">
-    <div x-transition.duration.500ms>
-      <span x-text="message" class="text-2xl"></span>
-    </div>
-  </template>
+<div class="bg-white text-gray-900">
+  <div class="max-w-4xl mx-auto px-6 py-12">
+    <section class="mb-8">
+      <div>
+        <h1 class="text-5xl font-bold mb-2">Rik Seth</h1>
+        <p class="text-lg text-gray-700">
+          B.E. in <span class="font-semibold">Electronics and Communication Engineering</span> (2023-2027)
+        </p>
+        <p class="mt-2 text-lg font-semibold">
+          <a href="https://github.com/odysseyguy" class="text-blue-700 hover:underline mx-1" target="_blank">GitHub</a> ·
+          <a href="https://linkedin.com/in/rikseth" class="text-blue-700 hover:underline mx-1" target="_blank">LinkedIn</a> ·
+          <a href="mailto:rikseth.acad@gmail.com" class="text-blue-700 hover:underline mx-1" target="_blank">Email</a>
+        </p>
+      </div>
+    </section>
+    <section class="mb-8">
+      <p class="text-lg">
+        I am currently pursuing my degree in <span class="font-semibold">Electronics and Communication Engineering</span>. 
+        My academic work and projects focus on <span class="font-semibold">hardware acceleration, digital signal processing, and FPGA-based design</span>. 
+        At present, I am interning at the <span class="font-semibold">DSP Lab, Raman Research Institute</span> under Prof. Prabu, where I am working on <span class="font-semibold">FPGA digital design verification</span>. 
+        My role involves developing and applying <span class="font-semibold">MATLAB-based test vector generation</span> workflows to validate FPGA implementations of signal processing algorithms, aimed at ensuring reliability and performance for large-scale radio receiver systems.
+      </p>
+    </section>
+    <section class="space-y-8 mb-8">
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Systolic Array Accelerator</h2>
+        <p class="text-lg text-gray-700">
+          Designing FPGA-based hardware accelerator based on a <span class="font-semibold">systolic array architecture</span>, 
+          focused on efficient <span class="font-semibold">matrix multiplication for Machine Learning workloads</span>. 
+          The architecture includes support for <span class="font-semibold">IEEE 754 FP16 floating-point arithmetic</span>, 
+          implemented entirely in <span class="font-semibold">Verilog</span>. 
+          The design emphasizes <span class="font-semibold">pipelined dataflow and scalable architecture</span> 
+          to explore high-performance digital implementation techniques.
+        </p>
+        <a href="/coming-soon" class="mt-4 text-lg inline-block text-blue-700 hover:underline font-semibold">
+          Read More about "Systolic Array Accelerator"
+        </a>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Avionics System Design</h2>
+        <p class="text-lg text-gray-700">
+          Designed the flight computer PCB in <span class="font-semibold">Altium Designer</span>, integrating 
+          <span class="font-semibold">navigational sensors (IMU, barometer, GPS/GNSS/IRNSS)</span>, <span class="font-semibold">MCU</span>, 
+          <span class="font-semibold">power modules</span>, and <span class="font-semibold">recovery system circuitry</span>. 
+          Developed firmware for <span class="font-semibold">real-time sensor processing</span>, 
+          <span class="font-semibold">apogee detection</span>, and <span class="font-semibold">telemetry communication</span> 
+          with the ground station.
+        </p>
+        <a href="/coming-soon" class="mt-4 text-lg inline-block text-blue-700 hover:underline font-semibold">
+          Read More about "Avionics System Design"
+        </a>
+      </div>
+    </section>
+    <section >
+        <h2 class="text-xl font-semibold mb-2">Skills</h2>
+        <ul class="list-disc list-inside space-y-2 text-lg">
+          <li><span class="font-semibold">Hardware Description Languages:</span> Verilog, VHDL</li>
+          <li><span class="font-semibold">FPGA Tools:</span> Xilinx Vivado, Intel Quartus</li>
+          <li><span class="font-semibold">Programming Languages:</span> Python, C/C++, Tcl</li>
+          <li><span class="font-semibold">PCB Design:</span> Altium Designer</li>
+    </section>
+  </div>
 </div>

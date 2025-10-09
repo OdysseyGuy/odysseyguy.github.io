@@ -6,40 +6,62 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>
-      {{ site.title }} {% if page.title %} | {{ page.title }} {% endif %}
-    </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/branding/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/branding/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/branding/favicon-16x16.png">
+    <link rel="shortcut icon" href="/assets/images/branding/favicon.ico">
+    <link rel="manifest" href="/assets/images/branding/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description }}" />
 
-    <link
-      rel="stylesheet"
-      href="{{ '/assets/css/main.css' | append: cache_bust }}"
-    />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    
-    {% for css in page.css %}
-      {% assign assets_path = '/assets/css/{{css}}' %}
-      <link rel="stylesheet" href="{{ assets_path | append: cache_bust }}" />
-    {% endfor %}
-  </head>
-
-  <body class="antialiased">
-    {% include header.html %}
-    
-    {{ content }}
-    
-    {% if page.show_footer %}
-      {% include footer.html %}
+    {% if page.sitemap != false %}
+      <meta name="robots" content="index, follow" />
+    {% else %}
+      <meta name="robots" content="noindex, nofollow" />
     {% endif %}
 
-    <script src="{{ '/assets/js/main.js' | append: cache_bust }}"></script>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}" />
+    <meta property="og:description" content="{{ page.description }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:image" content="/assets/images/share-image.png" />
 
-    {% for js in page.js %}
-      {% assign assets_path = '/assets/js/{{js}}' %}
-      <script src="{{ assets_path | append: cache_bust }}"></script>
-    {% endfor %}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}" />
+    <meta name="twitter:description" content="{{ page.description }}" />
+    <meta name="twitter:image" content="/assets/images/share-image.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | append: cache_bust }}" />
+    {% if page.css %}
+      {% for css in page.css %}
+        {% assign assets_path = '/assets/css/{{css}}' %}
+        <link rel="stylesheet" href="{{ assets_path | append: cache_bust }}" />
+      {% endfor %}
+    {% endif %}
+  </head>
+  <body class="antialiased min-h-screen flex flex-col bg-white text-gray-900 {% if extraBodyClass %}{{ extraBodyClass }}{% endif %}">
+    {% include header.html %}
+
+    <main class="flex-grow">
+      {{ content }}
+    </main>
+
+    {% unless page.exclude_footer %}
+      {% include footer.html %}
+    {% endunless %}
+
+    {% if page.js %}
+      {% for js in page.js %}
+        {% assign assets_path = '/assets/js/{{js.url}}' %}
+        <script src="{{ assets_path | append: cache_bust }}" {% if js.defer %}defer{% endif %}></script>
+      {% endfor %}
+    {% endif %}
   </body>
 </html>

@@ -1,4 +1,5 @@
-title: My Website
+title: Rik Seth
+url: 'https://rikseth.com'
 
 source: src
 strict_front_matter: true
@@ -18,6 +19,7 @@ postcss:
 
 plugins:
   - jekyll-postcss
+  - jekyll-sitemap
 
 defaults:
   - scope:
