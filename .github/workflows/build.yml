@@ -1,20 +1,27 @@
-name: Build and Deploy to GitHub Pages
+name: Build and Deploy to Pages
 
 env:
-  NODE_ENV: production
-  NODE_VERSION: 18.12.1
-  RUBY_VERSION: 3.0.0
+  NODE_VERSION: 22.20.0
+  RUBY_VERSION: 3.4.7
 
 on:
   push:
     branches:
       - main
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v3
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
@@ -31,7 +38,7 @@ jobs:
           restore-keys: ${{ runner.os }}-yarn-
 
       - name: "Cache: Setup bundler cache"
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: bundler-cache
         with:
           path: vendor/bundle
@@ -39,7 +46,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gems-
 
       - name: "Setup Nodejs"
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
