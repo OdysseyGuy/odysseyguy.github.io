@@ -13,6 +13,7 @@
     <link rel="manifest" href="/assets/images/branding/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}" />
 
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description }}" />
