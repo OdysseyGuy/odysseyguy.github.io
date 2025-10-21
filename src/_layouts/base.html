@@ -1,11 +1,10 @@
-{% assign cache_bust = site.time|date:'?v=%s' %}
+{% assign cache_bust = site.time|date:'?v=%s' -%}
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/branding/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/branding/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/branding/favicon-16x16.png">
@@ -15,14 +14,14 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}" />
 
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <title>{%- if page.title -%}{{- page.title -}} - {%- endif -%}{{- site.title -}}</title>
     <meta name="description" content="{{ page.description }}" />
 
-    {% if page.sitemap != false %}
+    {%- if page.sitemap != false -%}
       <meta name="robots" content="index, follow" />
-    {% else %}
+    {%- else -%}
       <meta name="robots" content="noindex, nofollow" />
-    {% endif %}
+    {%- endif -%}
 
     <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}" />
     <meta property="og:description" content="{{ page.description }}" />
@@ -38,31 +37,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | append: cache_bust }}" />
-    {% if page.css %}
-      {% for css in page.css %}
-        {% assign assets_path = '/assets/css/{{css}}' %}
+    {%- if page.css -%}
+      {%- for css in page.css -%}
+        {% assign assets_path = '/assets/css/{{css}}' -%}
         <link rel="stylesheet" href="{{ assets_path | append: cache_bust }}" />
-      {% endfor %}
-    {% endif %}
+      {%- endfor -%}
+    {%- endif %}
   </head>
   <body class="antialiased min-h-screen flex flex-col bg-white text-gray-900 {% if extraBodyClass %}{{ extraBodyClass }}{% endif %}">
-    {% include header.html %}
+    {% include header.html -%}
 
     <main class="flex-grow">
-      {{ content }}
+      {{ content -}}
     </main>
 
-    {% unless page.exclude_footer %}
-      {% include footer.html %}
-    {% endunless %}
+    {%- unless page.exclude_footer -%}
+      {%- include footer.html -%}
+    {%- endunless -%}
 
-    {% if page.js %}
-      {% for js in page.js %}
-        {% assign assets_path = '/assets/js/{{js.url}}' %}
+    {%- if page.js -%}
+      {%- for js in page.js -%}
+        {% assign assets_path = '/assets/js/{{js.url}}' -%}
         <script src="{{ assets_path | append: cache_bust }}" {% if js.defer %}defer{% endif %}></script>
-      {% endfor %}
-    {% endif %}
+      {%- endfor -%}
+    {%- endif -%}
   </body>
 </html>
