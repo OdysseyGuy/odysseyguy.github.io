@@ -26,6 +26,20 @@ Run the following command to start a local server with live reload:
 bundle exec jekyll serve --livereload
 ```
 
+### Windows
+
+`jekyll-postcss` uses a Bash-based launcher for its development server, which may not work correctly on Windows. If Jekyll gets stuck while starting, run the PostCSS server separately:
+
+```powershell
+node "$(bundle show jekyll-postcss)\bin\postcss" --development
+```
+
+Then, in another terminal, run:
+
+```powershell
+bundle exec jekyll serve --livereload
+```
+
 ## Deployment
 
 Run the following command to build the site for deployment:
@@ -41,7 +55,7 @@ The code is licensed under the [MIT License](https://opensource.org/licenses/MIT
 ```text
 MIT License
 
-Copyright (c) 2025 Rik Seth
+Copyright (c) 2025-26 Rik Seth
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

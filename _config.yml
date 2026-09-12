@@ -11,7 +11,6 @@ liquid:
 
 sass:
   sass_dir: _sass
-  cache: false
   style: compressed
 
 postcss:
