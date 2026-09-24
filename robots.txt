@@ -1,0 +1,10 @@
+---
+layout: null
+sitemap: false
+---
+User-agent: *
+Allow: /
+Allow: /rix8/
+
+Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: {{ site.url }}/rix8/sitemap.xml
