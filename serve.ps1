@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 Write-Host "Starting PostCSS development server..."
 
 $gemPath = (bundle show jekyll-postcss).Trim()
-$postcssPath = Join-Path $gemPath "bin" "postcss"
+$postcssPath = Join-Path $gemPath "bin\postcss"
 $postcssProcess = Start-Process `
     -FilePath "node" `
     -ArgumentList "`"$postcssPath`"", "--development" `
